@@ -1,5 +1,7 @@
 let _size = 9;
 let _grille = [];
+let _grilleSoluce = [];
+let _lvl = 1;
 
 function initTab() {
   for (let i = 0; i < _size; i++) {
@@ -53,7 +55,88 @@ function isEmpty(row, col) {
       return true;
     }
     return false;
+}
+
+function setSoluce() {
+    _grille = _grilleSoluce;
+}
+
+function resolve(position) {
+    if (position == _size*_size) return true;
+    let row = position/_size;
+    let col = position%_size;
+
+    for (let i = 0; i < _size; i++) {
+      for (let j = 0; j < _size ; j++) {
+        if (!isEmpty(i, j)) return resolve(position+1);
+      }
+    }
+
+    let v = [];
+    for (let i = 1; i < _size+1; i++) v.push(i);
+
+    v = shuffle(v);
+
+    for(int num : v){
+        if (isValid(num, row, col)) {
+            _grille[row][col] = num;
+
+            if (resolve(position+1, pit)) return true;
+            _grille[row][col] = 0;
+        }
+    }
+    return false;
+}
+
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+  while (currentIndex != 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
   }
+
+  return array;
+}
+
+function getDifficulty() {
+      let res = 0;
+      switch (_lvl) {
+        case 1:
+          res = _size*_size*0.3;
+          break;
+        case 2:
+          res = _size*_size*0.4;
+          break;
+        case 3:
+          res = _size*_size*0.5;
+          break;
+        case 4:
+          res = _size*_size*0.6;
+          break;
+        case 5:
+          res = _size*_size*0.7;
+          break;
+        default:
+          res = _size*_size*0.3;
+          break;
+      }
+
+      return res;
+    }
+
+function generateGrid(reste) {
+    let N = reste;
+    if (N > 0) {
+      let row = std::rand()%_size;
+      let col = std::rand()%_size;
+      if (_grille[row][col] != 0) {
+          _grille[row][col] = 0;
+          N--;
+      }
+      generateGrid(N);
+    }
+}
 
 
 
