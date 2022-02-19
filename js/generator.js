@@ -41,9 +41,24 @@ function isPlaceable_square(n, x, y) {
     return true;
 }
 
+function isValid(n, x, y) {
+  if (_grille[x][y] == 0) {
+    if (isPlaceable_row(n, x) && isPlaceable_column(n, y) && isPlaceable_square(n, x , y)) return true;
+  }
+  return false;
+}
+
+function isEmpty(row, col) {
+    if (_grille[row][col] == 0) {
+      return true;
+    }
+    return false;
+  }
+
+
+
 initTab();
-isPlaceable_row(2,1);
-isPlaceable_column(2,1);
-isPlaceable_square(2,1);
+isValid(2,1,1);
+isEmpty(1,1);
 
 console.log(_grille);
