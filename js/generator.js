@@ -62,26 +62,22 @@ function setSoluce() {
 }
 
 function resolve(position) {
-    if (position == _size*_size) return true;
-    let row = position/_size;
-    let col = position%_size;
+    if (position == (_size*_size)) return true;
+    let row = parseInt(position/_size,10);
+    let col = parseInt(position%_size, 10);
 
-    for (let i = 0; i < _size; i++) {
-      for (let j = 0; j < _size ; j++) {
-        if (!isEmpty(i, j)) return resolve(position+1);
-      }
-    }
+    if (!isEmpty(row, col)) return resolve(position+1);
 
     let v = [];
     for (let i = 1; i < _size+1; i++) v.push(i);
 
     v = shuffle(v);
 
-    for(int num : v){
-        if (isValid(num, row, col)) {
-            _grille[row][col] = num;
+    for (let i = 0; i < _size; i++) {
+        if (isValid(v[i], row, col)) {
+            _grille[row][col] = v[i];
 
-            if (resolve(position+1, pit)) return true;
+            if (resolve(position+1)) return true;
             _grille[row][col] = 0;
         }
     }
@@ -97,6 +93,10 @@ function shuffle(array) {
   }
 
   return array;
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
 
 function getDifficulty() {
@@ -128,8 +128,8 @@ function getDifficulty() {
 function generateGrid(reste) {
     let N = reste;
     if (N > 0) {
-      let row = std::rand()%_size;
-      let col = std::rand()%_size;
+      let row = getRandomInt(_size);
+      let col = getRandomInt(_size);
       if (_grille[row][col] != 0) {
           _grille[row][col] = 0;
           N--;
@@ -141,7 +141,8 @@ function generateGrid(reste) {
 
 
 initTab();
-isValid(2,1,1);
-isEmpty(1,1);
+resolve(0);
+_grilleSoluce = _grille;
+generateGrid(getDifficulty(_lvl));
 
 console.log(_grille);
