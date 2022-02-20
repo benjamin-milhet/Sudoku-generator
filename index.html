@@ -9,14 +9,36 @@
     <nav>
       Genoku - Sudoku Generator
     </nav>
-    <div class="param">
-      <div class="taille">
-          <button type="button" name="button1">4*4</button>
-          <button type="button" name="button2">9*9</button>
-          <button type="button" name="button3">16*16</button>
+    <div class="total">
+      <div class="param paramMenu">
+        <div class="title">
+          <h2>Taille de la grille : </h2>
+        </div>
+        <div class="taille">
+            <form class="" action="index.html" method="post">
+              <button type="submit" name="button1" value="4*4">4*4</button>
+              <button type="submit" name="button2" value="9*9">9*9</button>
+              <button type="submit" name="button3" value="16*16">16*16</button>
+            </form>
+        </div>
+        <br>
+        <br>
+        <div class="title">
+          <h2>Niveau de difficulté : </h2>
+        </div>
+        <div class="taille">
+            <form class="" action="index.html" method="post">
+              <button type="submit" name="niveau1" value="1">Première fois</button>
+              <button type="submit" name="niveau2" value="2">Facile</button>
+              <button type="submit" name="niveau3" value="3">Moyen</button>
+              <button type="submit" name="niveau4" value="4">Difficile</button>
+              <button type="submit" name="niveau5" value="5">Impossible</button>
+            </form>
+        </div>
+      </div>
+      <div class="param paramResult">
+        <script type="text/javascript" src="js/generator.js"></script>
       </div>
     </div>
-    <script type="text/javascript" src="js/generator.js"></script>
-
   </body>
 </html>

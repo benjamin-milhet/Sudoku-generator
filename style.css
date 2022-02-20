@@ -21,30 +21,56 @@ nav {
 
 }
 
+.total {
+  display: flex;
+
+}
+
 .param {
   border: 3px solid;
   border-color: #EB4D1B;
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
-  display: flex;
-  box-sizing: border-box;
+}
 
+.paramMenu {
+  width: 70%;
+}
+
+.paramResult {
+  width: 30%;
 }
 
 .taille {
   justify-content: center;
   display: flex;
-  box-sizing: border-box;
-  width: 100%;
+}
+
+.title {
+  justify-content: center;
+  display: flex;
 }
 
 button {
-    background-color: #EB4D1B;
-    border: none;
-    color: white;
+    border: 1px solid;
+    border-color: #EB4D1B;
+    background-color: white;
+    color: #EB4D1B;
     padding: 15px 32px;
     text-align: center;
     font-size: 16px;
     border-radius: 30px;
+    cursor: pointer;
+    width: 200px;
+}
+
+button:hover{
+  background-color: #EB4D1B;
+  color: white;
+}
+
+h2 {
+  color: #EB4D1B;
+  font-size: 1.5em;
 }
