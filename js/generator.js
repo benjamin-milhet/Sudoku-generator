@@ -139,11 +139,7 @@ function generateGrid(reste) {
 }
 
 function afficherGrille() {
-  //for (let i = 0; i < _size; i++) {
-    //for (let j = 0; j < _size ; j++) {
-      //document.write(_grille[i][j]);
-    //}
-  //}
+
 document.write("<table>");
 
  let nb = Math.sqrt(_size);
@@ -154,7 +150,7 @@ document.write("<table>");
             for (let j = 0; j < _size; j++)
             {
               document.write("<td>");
-                
+
                 document.write("&nbsp;");
                 if (_grille[i][j] < 10) {
                   document.write("&nbsp;");
