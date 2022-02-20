@@ -138,11 +138,50 @@ function generateGrid(reste) {
     }
 }
 
+function afficherGrille() {
+  //for (let i = 0; i < _size; i++) {
+    //for (let j = 0; j < _size ; j++) {
+      //document.write(_grille[i][j]);
+    //}
+  //}
+document.write("<table>");
+
+ let nb = Math.sqrt(_size);
+  for (let i = 0; i < _size; i++) {
+            if ((i%nb) == 0) {
+                document.write("<tr>");
+            }
+            for (let j = 0; j < _size; j++)
+            {
+              document.write("<td>");
+                
+                document.write("&nbsp;");
+                if (_grille[i][j] < 10) {
+                  document.write("&nbsp;");
+                }
+                if (_grille[i][j] == 0) {
+                    //os << "\x1B[91m0\033[0m";
+                    //os << "0";
+                    document.write("&nbsp;");
+                } else {
+                    document.write(_grille[i][j]);
+                }
+
+                document.write("&nbsp;");
+                document.write("</td>");
+
+            }
+                document.write("</tr>");
+
+        }
+        document.write("</table>");
+}
+
 
 
 initTab();
 resolve(0);
 _grilleSoluce = _grille;
 generateGrid(getDifficulty(_lvl));
-
+afficherGrille();
 console.log(_grille);
