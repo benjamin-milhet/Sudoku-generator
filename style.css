@@ -70,6 +70,11 @@ button:hover{
   color: white;
 }
 
+.selected{
+  background-color: #EB4D1B;
+  color: white;
+}
+
 h2 {
   color: #EB4D1B;
   font-size: 1.5em;

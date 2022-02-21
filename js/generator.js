@@ -156,8 +156,6 @@ document.write("<table>");
                   document.write("&nbsp;");
                 }
                 if (_grille[i][j] == 0) {
-                    //os << "\x1B[91m0\033[0m";
-                    //os << "0";
                     document.write("&nbsp;");
                 } else {
                     document.write(_grille[i][j]);
