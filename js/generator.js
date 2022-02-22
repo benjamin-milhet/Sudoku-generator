@@ -1,4 +1,14 @@
-let _size = 9;
+var p4 = document.getElementById("p4");
+var p9 = document.getElementById("p9");
+var p16 = document.getElementById("p16");
+
+let _size;
+
+if(p4.className === 'active') _size = 4;
+else if(p4.className === 'active') _size = 9;
+else if(p4.className === 'active') _size = 16;
+else _size = 9;
+
 let _grille = [];
 let _grilleSoluce = [];
 let _lvl = 1;
@@ -170,7 +180,6 @@ document.write("<table>");
         }
         document.write("</table>");
 }
-
 
 
 initTab();
