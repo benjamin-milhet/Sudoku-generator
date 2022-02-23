@@ -1,6 +1,7 @@
 var p4 = document.getElementById("p4");
 var p9 = document.getElementById("p9");
 var p16 = document.getElementById("p16");
+var affichage = document.getElementById("affichageTab");
 
 let _size;
 
@@ -150,35 +151,37 @@ function generateGrid(reste) {
 
 function afficherGrille() {
 
-document.write("<table>");
+let res = "";
+res += "<table>";
 
  let nb = Math.sqrt(_size);
   for (let i = 0; i < _size; i++) {
             if ((i%nb) == 0) {
-                document.write("<tr>");
+                res += "<tr>";
             }
             for (let j = 0; j < _size; j++)
             {
-              document.write("<td>");
+              res += "<td>";
 
-                document.write("&nbsp;");
+                res += "&nbsp;";
                 if (_grille[i][j] < 10) {
-                  document.write("&nbsp;");
+                  res += "&nbsp;";
                 }
                 if (_grille[i][j] == 0) {
-                    document.write("&nbsp;");
+                    res += "&nbsp;";
                 } else {
-                    document.write(_grille[i][j]);
+                    res += _grille[i][j];
                 }
 
-                document.write("&nbsp;");
-                document.write("</td>");
+                res += "&nbsp;";
+                res += "</td>";
 
             }
-                document.write("</tr>");
+                res += "</tr>";
 
         }
-        document.write("</table>");
+        res += "</table>";
+        affichage.innerHTML = res;
 }
 
 
